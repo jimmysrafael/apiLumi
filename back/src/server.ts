@@ -1,7 +1,14 @@
 import express from "express";
 import { prismaClient } from "./database";
+const cors = require('cors');
 
 const app = express();
+
+// Configurações do CORS
+app.use(cors({
+    origin: 'https://projeto-lumi-rho.vercel.app' // substitua pelo seu domínio
+}));
+
 app.use(express.json());
 
 const port = process.env.PORT ?? 4000;
